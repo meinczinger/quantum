@@ -1,1 +1,1 @@
-# quantum
+This repo is a playground for quantum algorithms. 
