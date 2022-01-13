@@ -1,13 +1,13 @@
 from cirq.study import resolver
 from algorithms.common.src.boolean_function import BooleanFunction
-from algorithms.circuits.src.deutsch_circuit import DeutschCircuit
+from algorithms.circuits.src.deutsch_jozsa_circuit import DeutschJozsaCircuit
 import cirq
 
-class AlgorithmDeutsch:
-  def __init__(self, hidden_function: BooleanFunction) -> None:
+class AlgorithmDeutschJozsa:
+  def __init__(self, function_dim: int, hidden_function: BooleanFunction) -> None:
     """
     """
-    self.circuit = DeutschCircuit(hidden_function).get_circuit()
+    self.circuit = DeutschJozsaCircuit(function_dim, hidden_function).get_circuit()
 
   def run(self) -> int:
     # simulate
