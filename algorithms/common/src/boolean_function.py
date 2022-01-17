@@ -18,6 +18,12 @@ class BooleanFunction:
     """
     return self.function_values
   
+  def __getitem__(self, index_key:int) -> int:
+    """ 
+    Gets an item by the index
+    """
+    return self.function_values[index_key]
+
   def __getitem__(self, key:tuple) -> int:
     """ 
     Gets an item by an list
@@ -34,9 +40,14 @@ class BooleanFunction:
     Checks if the function is balanced. 
     Definition of balanced: half of the possible elemts from the domain of the function map to 0 and the other half to 1
     """
+    s = sum(x == 1 for x in self.function_values)
     return sum(x == 1 for x in self.function_values) == 2**(self.dimension - 1)
   
   def is_constant(self) -> bool:
     """ Checks if the function is constant """
     return all(e == 1 for e in self.function_values) or all(e == 0 for e in self.function_values)
+  
+  def dim(self) -> int:
+    """ Return the dimension of the function """
+    return self.dimension
   
